@@ -30,7 +30,20 @@ class CartItem extends React.Component{
       }
     })
 
-    console.log(this.state);
+    //console.log(this.state);
+  }
+
+  decreaseQuantity = () =>{
+
+    if(this.state.quantity ===0){
+      return;
+    }
+
+    this.setState((prevState) =>{
+      return{
+        quantity:prevState.quantity-1
+      }
+    })
   }
 
   render(){
@@ -48,7 +61,7 @@ class CartItem extends React.Component{
           <div className='action-items'>
             {/* Buttons */}
             <img alt="increase" src='https://cdn-icons-png.flaticon.com/512/3524/3524388.png' onClick = {this.increaseQuantity}></img>
-            <img alt="decrease" src='https://cdn-icons-png.flaticon.com/512/56/56889.png'></img>
+            <img alt="decrease" src='https://cdn-icons-png.flaticon.com/512/56/56889.png' onClick = {this.decreaseQuantity}></img>
             <img alt="delete" src='https://cdn-icons-png.flaticon.com/512/484/484611.png'></img>
           </div>
 
