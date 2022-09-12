@@ -1,13 +1,39 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* margin: 0; */
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.cart-item {
+  height: 150px;
+  width: 500px;
+  /* background-color: cyan; */
+  display: flex;
+}
+
+.left-block {
+  width: 30%;
+  border-radius: 4px;
+  background-color: #ccc;
+}
+
+.right-block {
+  padding: 2% 0% 0% 5%;
+  font-size: 1.4rem;
+  width: 70%;
+}
+.action-items {
+  margin-top: 1%;
+}
+
+.action-items img {
+  padding: 2%;
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+
+.price,
+.quantity {
+  color: #777;
 }
