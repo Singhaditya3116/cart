@@ -55,7 +55,7 @@ class CartItem extends React.Component{
           <img alt='hello' src='../public/logo192.png'></img>
         </div>
         <div className='right-block'>
-          <div>{title}</div>
+          <h4>{title}</h4>
           <div className='price'>Rs {price}</div>
           <div className='quantity'>Qty: {quantity}</div>
           <div className='action-items'>

@@ -1,5 +1,5 @@
 body {
-  /* margin: 0; */
+  /* margin: 0%; */
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
@@ -9,6 +9,7 @@ body {
   width: 500px;
   /* background-color: cyan; */
   display: flex;
+  margin: 2%;
 }
 
 .left-block {
@@ -22,12 +23,17 @@ body {
   font-size: 1.4rem;
   width: 70%;
 }
+.right-block h4 {
+  margin: 0%;
+  padding-bottom: 2%;
+}
+
 .action-items {
   margin-top: 1%;
 }
 
 .action-items img {
-  padding: 2%;
+  padding: 2% 4% 0% 0%;
   height: 18px;
   width: 18px;
   cursor: pointer;
@@ -36,4 +42,8 @@ body {
 .price,
 .quantity {
   color: #777;
+}
+
+.cart {
+  border: solid 2px black;
 }
