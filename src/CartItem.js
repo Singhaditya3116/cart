@@ -2,7 +2,7 @@ import React from 'react'
 
 class CartItem extends React.Component{
 
-  increaseQuantity = ()=> {
+//  increaseQuantity = ()=> {
     
     //this.state.quantity++;    this will not reflect in UI as react will not re -render it.
     //we have to tell the react to re-render the changes that we have made. set State re-render implicitly.
@@ -14,7 +14,7 @@ class CartItem extends React.Component{
     */
 
     //second way   -- if previous state required use  this.
-    this.setState((prevState) => {
+ /*   this.setState((prevState) => {
       
       return {
         quantity:prevState.quantity+1
@@ -36,15 +36,16 @@ class CartItem extends React.Component{
       }
     })
   }
+  */
 
   render(){
     const {title,price,quantity} = this.props.product;
     console.log("Cart Item Render");
-    console.log("props:" ,this.props);
+    // console.log("props:" ,this.props);
     return (
       <div className='cart-item'>
         <div className='left-block'>
-          <img alt='hello' src='../public/logo192.png'></img>
+          <img  src=''></img>
         </div>
         <div className='right-block'>
           <h4>{title}</h4>
@@ -52,9 +53,9 @@ class CartItem extends React.Component{
           <div className='quantity'>Qty: {quantity}</div>
           <div className='action-items'>
             {/* Buttons */}
-            <img alt="increase" src='https://cdn-icons-png.flaticon.com/512/3524/3524388.png' onClick = {this.increaseQuantity}></img>
-            <img alt="decrease" src='https://cdn-icons-png.flaticon.com/512/56/56889.png' onClick = {this.decreaseQuantity}></img>
-            <img alt="delete" src='https://cdn-icons-png.flaticon.com/512/484/484611.png'></img>
+            <img alt="increase" src='https://cdn-icons-png.flaticon.com/512/3524/3524388.png' onClick = {() => this.props.onIncreaseQuantity(this.props.product)}></img>
+            <img alt="decrease" src='https://cdn-icons-png.flaticon.com/512/56/56889.png' onClick = {()=> this.props.onDecreaseQuantity(this.props.product)}></img>
+            <img alt="delete" src='https://cdn-icons-png.flaticon.com/512/484/484611.png' onClick={()=>this.props.onDeleteItem(this.props.product.id)}></img>
           </div>
 
         </div>
