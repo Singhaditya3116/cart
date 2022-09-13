@@ -4,7 +4,7 @@ const Footer = (props) =>{
 
   return(
     <div>
-      <h3>Total : {props.totalPrice}</h3>
+      <h3 className="totalPrice">Total : {props.totalPrice}</h3>
     </div>
   );
 

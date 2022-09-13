@@ -84,3 +84,7 @@ body {
 .cart {
   border: solid 2px black;
 }
+
+.totalPrice{
+  margin-left: 4%;
+}
