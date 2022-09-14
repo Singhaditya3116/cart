@@ -2,6 +2,11 @@ import React from "react";
 import CartList from "./CartList"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import  firebase from "firebase/compat/app";
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import "firebase/compat/database";
+import "firebase/compat/storage";
 
 
 class App extends React.Component {
@@ -9,30 +14,33 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      products:[
-        {
-          id:1,
-          img:"https://m.media-amazon.com/images/I/618gFHEnXUL._SL1200_.jpg",
-          title:"Iqoo 9se",
-          price:34000,
-          quantity:2
-        },
-        {
-          id:2,
-          img:"https://oasis.opstatics.com/content/dam/oasis/page/events/ovaltine/in/OnePlusWatch.png",
-          title:"Oneplus Smartwatch",
-          price:5000,
-          quantity:5
-          },
-        {
-          id:3,
-          img:"https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202206?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653493200207",
-          title:"MacBook ",
-          price:20000,
-          quantity:5
-        }
-      ]
+      products:[],
+      loading:true
     }
+  }
+
+  componentDidMount(){
+    firebase
+      .firestore()
+      .collection("products")
+      .get()
+      .then((snapshot)=>{
+        //console.log("snaps :",snapshot);
+        
+        const products = snapshot.docs.map((doc)=>{
+          //console.log(doc.data());
+          const data = doc.data();
+          data.id = doc.id;
+          return data;
+        })
+
+        this.setState({
+          products:products,
+          loading:false
+        })
+
+      })
+
   }
 
   handleIncreaseQuantity = (product)=>{
@@ -90,7 +98,7 @@ class App extends React.Component {
   }
 
   render(){
-    const {products} = this.state;
+    const {products,loading} = this.state;
 
   return (
     <div className="App">
@@ -103,6 +111,7 @@ class App extends React.Component {
       onDeleteItem={this.handleDeleteItem}
       products = {products}
       />
+      {loading && <h2>Loading Products ...</h2>}
       <Footer
       totalPrice = {this.getTotalPrice()}
       />
