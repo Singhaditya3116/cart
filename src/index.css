@@ -88,3 +88,9 @@ body {
 .totalPrice{
   margin-left: 4%;
 }
+
+.add-product-btn{
+  padding: 1%;
+  background-color: greenyellow;
+  border-radius: 10px;
+}
