@@ -123,11 +123,22 @@ class App extends React.Component {
     console.log("Delete Clicked ",id);
     const {products} = this.state;
     
-    const newProductsArray = products.filter((element)=> element.id!==id);
+    // const newProductsArray = products.filter((element)=> element.id!==id);
 
-    this.setState({
-      products:newProductsArray
-    })
+    // this.setState({
+    //   products:newProductsArray
+    // })
+
+    const docRef = firebase.firestore().collection("products").doc(id);
+    //console.log(docRef);
+    docRef
+      .delete()
+      .then(()=>{
+        console.log("Product Deleted Successfully");
+      })
+      .catch((err)=>{
+        console.log("Error occured :",err);
+      })
   }
 
   productCount = ()=>{
